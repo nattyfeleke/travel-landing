@@ -1,0 +1,12 @@
+[
+   { 
+    "departure": "2023-12-25",
+    "destination": "New York",
+    "price": 200
+    },
+    {
+    "departure": "2024-01-10",
+    "destination": "London",
+    "price": 350
+    }
+]

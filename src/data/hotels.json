@@ -1,0 +1,14 @@
+[
+    {
+    "name": "Grand Hotel",
+    "location": "Paris",
+    "rating": 4.5,
+    "price": 150
+    },
+    {
+    "name": "The Ritz",
+    "location": "London",
+    "rating": 5,
+    "price": 250
+    }
+    ]
