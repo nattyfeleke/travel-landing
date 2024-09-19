@@ -1,3 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'FirmaBlack';
+  src: url(/font/FirmaBlack.otf) format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FirmaBold';
+  src: url(/font/FirmaBold.otf) format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FirmaLight';
+  src: url(/font/FirmaLight.otf) format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FirmaMedium';
+  src: url(/font/FirmaMedium.otf) format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FirmaRegular';
+  src: url(/font/FirmaRegular.otf) format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
