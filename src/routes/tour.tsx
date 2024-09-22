@@ -62,7 +62,7 @@ const Tour = ()=>{
         }
       };
 const loading = status==='loading' && task==='fetch-destinations'
-    return(<div className='h-full min-h-screen flex items-center justify-center'>
+    return(<div className='h-full min-h-screen flex items-center justify-center px-6'>
 
 <form className="max-w-md w-96 mx-auto">
 <h2 className='text-sm font-medium text-gray-900'>Search for Tours</h2>
