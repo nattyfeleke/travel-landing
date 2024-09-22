@@ -9,6 +9,7 @@ console.log(`apiUrl is ${apiUrl}`)
 
 const initialState: TourState = {
   destinations:[],
+  products:[],
   status: 'idle',
   task:'',
   total: 0,
@@ -31,7 +32,7 @@ export const fetchPackages = createAsyncThunk(
         }
       });
       return {destinations:response.data.data.destinations,
-    
+    products:response.data.data.products
       };
     } catch (error) {
       let errors: any = []
@@ -61,6 +62,7 @@ export const PackageSlice = createSlice({
     builder
     .addCase(fetchPackages.fulfilled, (state, action) => {
       state.destinations= action.payload.destinations
+      state.products= action.payload.products
       state.status = 'idle'
       state.task=''
     }).addCase(fetchPackages.pending, (state) => {

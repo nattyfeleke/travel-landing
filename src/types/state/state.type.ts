@@ -2,6 +2,7 @@ import { IAccount } from "../model/account.mode";
 import { IDestination } from "../model/destination.model";
 import { IFlight } from "../model/flight.model";
 import { IHotel } from "../model/hotel.model";
+import { IProduct } from "../model/product.model";
 
 export interface AuthState {
   token: string | null;
@@ -40,6 +41,7 @@ export interface FlightState {
 
   export interface TourState {
     destinations:IDestination[]
+    products:IProduct[]
     status: 'idle' | 'loading' | 'failed';
     task:''|'fetch-destinationss'|'fetch-destinations'|'create-destinations'|'edit-destinations'
     total: number

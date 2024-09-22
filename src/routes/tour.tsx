@@ -5,6 +5,8 @@ import { useAppDispatch, useAppSelector } from '../store/store'
 import { login, logout } from '../store/features/auth.slice'
 import setAuthToken from '../utils/set-auth-token.util'
 import { fetchPackages } from '../store/features/package.slice'
+import Destinations from '../components/tour/Destinations'
+import Products from '../components/tour/Products'
 
 export const Route = createFileRoute('/tour')({
   component: () => <Tour />,
@@ -14,7 +16,7 @@ const Tour = ()=>{
     
     const [searchQuery,setSearchQuery] = useState<string>('')
 
-    const {destinations,status,task}= useAppSelector(state=>state.package)
+    const {destinations,products,status,task}= useAppSelector(state=>state.package)
     const authStore= useAppSelector(state=>state.auth)
     const dispatch = useAppDispatch();
     // useEffect(()=>{
@@ -69,7 +71,10 @@ const loading = status==='loading' && task==='fetch-destinations'
     <input type="text" id="search" className=" bg-gray-50 border border-gray-300 text-gray-600 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value={searchQuery} required onChange={handleSearchInput} />
     <div className="flex flex-col gap-1 py-2  bg-gray-50">
 
-    {loading? <p>Loading ...</p>: searchQuery && destinations.length>0 && destinations.map(destination=> (<div className='hover:bg-gray-300 px-4 cursor-pointer' key={destination.dbid}>{destination.destinationName}</div>))}
+    {loading? <p>Loading ...</p>: searchQuery && <>
+        <Destinations queryString={searchQuery} destinations={destinations}/>
+        <Products queryString={searchQuery} products={products}/>
+    </> }
     </div>
   </div>
  
