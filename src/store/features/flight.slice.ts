@@ -14,7 +14,14 @@ const initialState: FlightState = {
   limit:10,
 };
 
-
+const getFlights = (): Promise<IFlight[]> => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      
+      resolve(flightsData);
+    }, 2000); // 1 second delay
+  });
+};
 
  export const fetchFlights = createAsyncThunk(
    "flight/fetchFlights",
@@ -22,7 +29,7 @@ const initialState: FlightState = {
      try {
         const startIndex = (page - 1) * limit;
   const endIndex = startIndex + limit;
-const flights = flightsData as IFlight[];
+const flights = await getFlights();
 let filteredFlights = flights.slice(startIndex, endIndex);
         if(search) filteredFlights = flights.filter(flight=>flight.destination.toLocaleLowerCase().includes(search))
        return {
