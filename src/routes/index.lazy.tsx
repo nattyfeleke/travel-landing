@@ -2,7 +2,6 @@ import { createLazyFileRoute } from '@tanstack/react-router'
  import Hero from '../components/Hero'
  import Main from '../components/Main'
  import Footer from '../components/Footer'
-import Tour from './tour'
 
 export const Route = createLazyFileRoute('/')({
   component: () => <Landing />,
