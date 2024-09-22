@@ -3,9 +3,9 @@ import HeroImage from '../assets/hero.png'
 import { Link } from '@tanstack/react-router'
 const Hero = () => {
   return (
-    <div className='bg-black h-screen px-20'>
+    <div className='bg-black h-full sm:h-screen px-20'>
 
-        <div className="flex  flex-col h-full w-full items-center justify-end ">
+        <div className="flex  flex-col h-full w-full items-center justify-end py-20 sm:py-0 ">
           <div className="flex flex-col  max-w-xl  gap-12">
 <div className='text-center'>
      <h1 className='text-white text-4xl font-firma-black'>Start selling travel today on your own website</h1>
@@ -16,7 +16,7 @@ const Hero = () => {
 
 </div>
          
-<div className="">
+<div className="hidden sm:block">
 
 <img src={HeroImage} alt="hero image" />
 </div>

@@ -1,12 +1,19 @@
 [
    { 
     "departure": "2023-12-25",
+    "time": "10:30",
+    "duration": "12h 14m",
     "destination": "New York",
-    "price": 200
+    "price": 200,
+    "type":"1 Stop"
     },
     {
     "departure": "2024-01-10",
+    "time": "10:30",
+    "duration": "12h 14m",
     "destination": "London",
-    "price": 350
+    "price": 350,
+    "type":"1 Stop"
+
     }
 ]
