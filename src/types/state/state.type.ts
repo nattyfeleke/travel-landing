@@ -1,5 +1,17 @@
+import { IAccount } from "../model/account.mode";
+import { IDestination } from "../model/destination.model";
 import { IFlight } from "../model/flight.model";
 import { IHotel } from "../model/hotel.model";
+
+export interface AuthState {
+  token: string | null;
+  user: IAccount | null;
+  status: 'idle' | 'loading' | 'failed';
+  task:string
+  isAuthenticated: boolean
+//   dashboard:Dashboard|null
+  
+}
 
 export interface FlightState {
     flights:IFlight[]
@@ -13,6 +25,8 @@ export interface FlightState {
   }
 
 
+
+
   export interface HotelState {
     hotels:IHotel[]
     hotel: IHotel| null;
@@ -24,3 +38,12 @@ export interface FlightState {
     
   }
 
+  export interface TourState {
+    destinations:IDestination[]
+    status: 'idle' | 'loading' | 'failed';
+    task:''|'fetch-destinationss'|'fetch-destinations'|'create-destinations'|'edit-destinations'
+    total: number
+    page: number
+    limit: number
+    
+  }

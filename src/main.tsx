@@ -6,6 +6,7 @@ import './index.css'
 import { routeTree } from './routeTree.gen'
 import { Provider } from 'react-redux'
 import { store } from './store/store'
+import { Toaster } from 'sonner'
 
 // Create a new router instance
 const router = createRouter({ routeTree })
@@ -24,7 +25,9 @@ if (!rootElement.innerHTML) {
   root.render(
     <StrictMode>
       <Provider store={store}>
-      <RouterProvider router={router} /></Provider>
+      <RouterProvider router={router} />
+      <Toaster />
+      </Provider>
     </StrictMode>,
   )
 }
