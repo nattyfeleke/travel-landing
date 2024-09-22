@@ -67,8 +67,8 @@ const loading = status==='loading' && task==='fetch-destinations'
 <form className="max-w-md w-96 mx-auto">
 <h2 className='text-sm font-medium text-gray-900'>Search for Tours</h2>
   <div className="mb-5">
-    <label htmlFor="search" className="block mb-2 text-sm font-medium text-gray-600 dark:text-white">Search for a place or activity</label>
-    <input type="text" id="search" className=" bg-gray-50 border border-gray-300 text-gray-600 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value={searchQuery} required onChange={handleSearchInput} placeholder='Eg: Lagos, Nigeria' />
+    <label htmlFor="search" className="block mb-2 text-sm font-medium text-gray-600">Search for a place or activity</label>
+    <input type="text" id="search" className=" bg-gray-50 border border-gray-300 text-gray-600 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value={searchQuery} required onChange={handleSearchInput} placeholder='Eg: Lagos, Nigeria' />
    
 
     {loading? <div className='animate-pulse mt-2 flex flex-col gap-1'>
@@ -84,9 +84,9 @@ const loading = status==='loading' && task==='fetch-destinations'
   </div>
   <div className="mb-5">
     <label htmlFor="search" className="block mb-2 text-sm font-medium text-gray-600 dark:text-white">When</label>
-    <input type="date" id="date" className=" bg-gray-50 border border-gray-300 text-gray-600 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required  placeholder='Select dates' />
+    <input type="date" id="date" className=" bg-gray-50 border border-gray-300 text-gray-600 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required  placeholder='Select dates' />
     </div>
-  <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm !w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search for tours</button>
+  <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm !w-full sm:w-auto px-5 py-2.5 text-center">Search for tours</button>
 </form>
     </div>)
 }
