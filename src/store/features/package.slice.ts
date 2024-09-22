@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios,{isAxiosError} from "axios";
 import { TourState } from "../../types/state/state.type";
-import setAuthToken from "../../utils/set-auth-token.util";
 
 const apiUrl = process.env.BACKEND_BASE_URL
 console.log(`apiUrl is ${apiUrl}`)
@@ -16,14 +15,16 @@ const initialState: TourState = {
   limit:10,
   page:1
 };
-
+let abortController: AbortController | null = null;
 export const fetchPackages = createAsyncThunk(
   "package/fetchPackages",
   async (searchQuery:string, thunkAPI) => {
     try {
     
-      setAuthToken(localStorage.token);
-
+        if (abortController) {
+            abortController.abort(); // Cancel previous request
+          }
+          abortController = new AbortController();
       const response = await axios.get(`${apiUrl}/product/v1/package/auto-complete`,{
         params:{
             q:searchQuery

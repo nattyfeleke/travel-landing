@@ -11,7 +11,7 @@ const Hero = () => {
      <h1 className='text-white text-4xl font-firma-black'>Start selling travel today on your own website</h1>
 <p className="text-[#6D7C94] text-[10px] mt-4">Customize your travel website, and start selling. Let’s get your business off the ground with our intuitive tools!</p>
 <div className="my-4">
-<Link to='.' className='px-12 py-1.5 text-white bg-[#1E61DC] rounded font-thin text-sm'> Try it now</Link>
+<Link to='/tour' className='px-12 py-1.5 text-white bg-[#1E61DC] rounded font-thin text-sm'> Try it now</Link>
 </div>
 
 </div>

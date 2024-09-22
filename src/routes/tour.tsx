@@ -1,8 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router'
 import debounce from 'lodash.debounce'
-import { useCallback, useState } from 'react'
+import { useCallback,  useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../store/store'
-import { login } from '../store/features/auth.slice'
+import { login, logout } from '../store/features/auth.slice'
 import setAuthToken from '../utils/set-auth-token.util'
 import { fetchPackages } from '../store/features/package.slice'
 
@@ -15,23 +15,36 @@ const Tour = ()=>{
     const [searchQuery,setSearchQuery] = useState<string>('')
 
     const {destinations,status,task}= useAppSelector(state=>state.package)
+    const authStore= useAppSelector(state=>state.auth)
     const dispatch = useAppDispatch();
+    // useEffect(()=>{
+    //     dispatch(logout())
+    // },[])
     const debouncedSearchPackages = useCallback(
         debounce(async (searchQuery) => {
           if (searchQuery.trim() === "") {
             // dispatch(fetchProducts({ page: 1, limit: rowsPerPage, provider: id,category:selectedCategory }));
             return;
           }
-          const resultAction = await  dispatch(login({email:'abebe2@yopmail.com',password:'Password.1'}));
-          if (login.fulfilled.match(resultAction)) {  
-            setAuthToken(resultAction.payload.token)
-            console.log('resultAction.payload');
-            console.log(resultAction.payload);
-            
-      
+          if(authStore.isAuthenticated){
             dispatch(fetchPackages(searchQuery));
+          }else {
+            const resultAction = await  dispatch(login({email:'abebe2@yopmail.com',password:'Password.1'}));
+            if (login.fulfilled.match(resultAction)) {  
+              setAuthToken(resultAction.payload.token)
+              console.log('resultAction.payload');
+              console.log(resultAction.payload);
+              
+        
+              dispatch(fetchPackages(searchQuery));
+            }
+  
+            if (login.rejected.match(resultAction)) {  
+              dispatch(logout())
+            }
           }
-          dispatch(fetchPackages(searchQuery));
+         
+        
         }, 500), // 500 milliseconds debounce delay
         [dispatch]
       );
@@ -64,3 +77,5 @@ const loading = status==='loading' && task==='fetch-destinations'
 </form>
     </div>)
 }
+
+export default Tour;
